@@ -1,0 +1,56 @@
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\bin\Debug\net7.0\DAL.deps.json
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\bin\Debug\net7.0\DAL.dll
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\bin\Debug\net7.0\DAL.pdb
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\DAL.dll
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\refint\DAL.dll
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\DAL.pdb
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\..Ayali Nechami Miri\newProject\DAL\obj\Debug\net7.0\ref\DAL.dll
+C:\Users\angular\Desktop\newProject\DAL\bin\Debug\net7.0\DAL.deps.json
+C:\Users\angular\Desktop\newProject\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+C:\Users\angular\Desktop\newProject\DAL\bin\Debug\net7.0\DAL.dll
+C:\Users\angular\Desktop\newProject\DAL\bin\Debug\net7.0\DAL.pdb
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\DAL.dll
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\refint\DAL.dll
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\DAL.pdb
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+C:\Users\angular\Desktop\newProject\DAL\obj\Debug\net7.0\ref\DAL.dll
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\bin\Debug\net7.0\DAL.deps.json
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\bin\Debug\net7.0\DAL.dll
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\bin\Debug\net7.0\DAL.pdb
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\DAL.dll
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\refint\DAL.dll
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\DAL.pdb
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+F:\תיקייה כללית חדש\שנה ב תשפה\קבוצה א\תלמידות\מירי י\projectttttt\c#\DAL\obj\Debug\net7.0\ref\DAL.dll
+C:\Users\angular\Desktop\newProject\c#\DAL\bin\Debug\net7.0\DAL.deps.json
+C:\Users\angular\Desktop\newProject\c#\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+C:\Users\angular\Desktop\newProject\c#\DAL\bin\Debug\net7.0\DAL.dll
+C:\Users\angular\Desktop\newProject\c#\DAL\bin\Debug\net7.0\DAL.pdb
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.dll
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\refint\DAL.dll
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.pdb
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\ref\DAL.dll
