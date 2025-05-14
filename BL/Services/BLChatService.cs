@@ -13,6 +13,7 @@ namespace BL.Services
     public class BLChatService : IBLChat
     {
         IDal dal;
+       
         public BLChatService(IDal dal)
         {
             this.dal = dal;
@@ -56,7 +57,7 @@ namespace BL.Services
             dal.Chats.Update(chatTodal(chat));
         }
    
-    #region customerTodal
+    #region chatTodal
     Chat chatTodal(BLChat chat)
     {
             Chat c = new Chat()

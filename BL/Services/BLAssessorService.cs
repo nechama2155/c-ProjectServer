@@ -16,12 +16,16 @@ namespace BL.Services
         IBLApplications applicationBl;
         IBLApartmentDetails apartmentDetailsBL;
         IBLChat chatBl;
-        public BLAssessorService(IDal dal,IBLApplications application, IBLApartmentDetails apartmentDetails, IBLChat chatBl)
+        IBLAssessment assessmentBl ;
+        IBLCustomer customerBl;
+        public BLAssessorService(IDal dal,IBLApplications application, IBLCustomer customerBl, IBLAssessment assessmentBl, IBLApartmentDetails apartmentDetails, IBLChat chatBl)
         {
             this.dal = dal;
             this.applicationBl = application;
             this.apartmentDetailsBL = apartmentDetails;
             this.chatBl = chatBl;
+            this.customerBl = customerBl;
+            this.assessmentBl = assessmentBl;
         }
 
 
@@ -40,7 +44,7 @@ namespace BL.Services
         {
             var AList = dal.Assessors.GetCustomers(id);
             List<BLCustomer> list = new();
-            AList.ForEach(a => list.Add(customerTobl(a)));
+            AList.ForEach(a => list.Add(((BLCustomersService)customerBl).customerTobl(a)));
             return list;
         }
         #endregion
@@ -61,7 +65,7 @@ namespace BL.Services
         {
             var AList = dal.Assessors.GetAssessments(id);
             List<BLAssessment> list = new();
-            AList.ForEach(a => list.Add(assessmentTobl(a)));
+            AList.ForEach(a => list.Add(((BLAssessmentService)assessmentBl).assessmentTobl(a)));
             return list;
         }
         #endregion
@@ -76,6 +80,7 @@ namespace BL.Services
             return list;
         }
         #endregion
+
         #region GetChats
 
         public List<BLChat> GetChat(string id)
@@ -134,7 +139,7 @@ namespace BL.Services
         #endregion
 
         #region  assessorTobl
-        BLAssessor assessorTobl(Assessor a)
+     public   BLAssessor assessorTobl(Assessor a)
         {
             BLAssessor bla = new BLAssessor()
             {
@@ -155,7 +160,7 @@ namespace BL.Services
         #endregion
 
         #region assessorTodal
-        Assessor assessorTodal(BLAssessor bla)
+       public Assessor assessorTodal(BLAssessor bla)
         {
             Assessor a = new Assessor()
             {
@@ -177,88 +182,7 @@ namespace BL.Services
 
         #endregion
 
-        #region customerTobl
-        BLCustomer customerTobl(Customer c)
-        {
-            if (c != null)
-            {
-                BLCustomer bla = new BLCustomer()
-                {
-                    CustomerId = c.CustomerId,
-                    CustomerFirstName = c.CustomerFirstName,
-                    CustomerLastName = c.CustomerLastName,
-                    CustomerCity = c.CustomerCity,
-                    CustomerAddress = c.CustomerAddress,
-                    CustomerPhone = c.CustomerPhone,
-                    CustomerEmail = c.CustomerEmail
-                };
-                return bla;
-            }
-            return null;
-        }
-        #endregion
-
-        #region applicationTobl
-        BLApplications applicationTobl(Application a)
-        {
-
-            BLApplications blapp = new BLApplications()
-            {
-                ApplicationId = a.ApplicationId,
-                AssessorId = a.AssessorId,
-                ApplicationDate = a.ApplicationDate,
-                LastApplicationDate = a.LastApplicationDate,
-                ApplicationStatus = a.ApplicationStatus,
-            };
-            return blapp;
-        }
-        #endregion
-
-        #region assessmentTobl
-        BLAssessment assessmentTobl(Assessment a)
-        {
-            if (a != null) { 
-                BLAssessment bla = new BLAssessment()
-            {
-                AssessmentId = a.AssessmentId,
-                Block = a.Block != null ? a.Block : "",
-                Plot = a.Plot != null ? a.Plot : "",
-                SubPlot = a.SubPlot != null ? a.SubPlot : "",
-                ConstructionYear = a.ConstructionYear != null ? a.ConstructionYear : "",
-                AcquisionPrice = (int)(a.AcquisionPrice != null ? a.AcquisionPrice : 0),
-                AssessmentGoal = a.AssessmentGoal != null ? a.AssessmentGoal : "",
-                LegalState = a.LegalState != null ? a.LegalState : "",
-                BuildingPermit = a.BuildingPermit != null ? a.BuildingPermit : "",
-                IrregularitiesBuilding = a.IrregularitiesBuilding != null ? a.IrregularitiesBuilding : "",
-            };
-            return bla;
-            }
-            return null;
-        }
-        #endregion
-
-
-        #region apartmentDetailsTobl
-        BLApartmentDetails apartmentDetailsTobl(ApartmentDetail a)
-        {
-            if(a!= null) { 
-            BLApartmentDetails bla = new BLApartmentDetails()
-            {
-                ApartmentId = a.ApartmentId,
-                AirDirections = a.AirDirections,
-                ApartmentAddress = a.ApartmentAddress,
-                ApartmentCity = a.ApartmentCity,
-                Directions = a.Directions,
-                ApartmentSize = a.ApartmentSize,
-                Elevator = a.Elevator,
-                Floor = a.Floor,
-                CustomerId = a.CustomerId
-            };
-            return bla;
-            }
-            return null;
-        }
-        #endregion
+      
 
     }
 }
