@@ -14,10 +14,19 @@ namespace BL.Services
     {
         IBLChat chatBl;
         IDal dal;
-        public  BLCustomersService(IDal dal, IBLChat chatBl)
+        IBLApartmentDetails apartmentDetailsBl;
+        IBLAssessment assessmentBl ;
+        IBLApplications applicationsBl;
+        IBLAssessor assessorBl;
+        public  BLCustomersService(IDal dal, IBLAssessor assessorBl, IBLApplications applicationsBl, IBLChat chatBl, IBLAssessment assessmentBl, IBLApartmentDetails apartmentDetailsBl)
         {
             this.chatBl = chatBl;
             this.dal = dal;
+            this.apartmentDetailsBl = apartmentDetailsBl;
+            this.assessmentBl = assessmentBl;   
+            this.applicationsBl = applicationsBl;
+            this.assessorBl = assessorBl;   
+
         }
 
         #region GetAll
@@ -44,7 +53,7 @@ namespace BL.Services
         public List <BLAssessor> GetAssessor(string id) {
             var AList = dal.Customers.GetAssessors(id);
             List<BLAssessor> list = new();
-            AList.ForEach(a => list.Add(assessorTobl(a)));
+            AList.ForEach(a => list.Add(((BLAssessorService)assessorBl).assessorTobl(a)));
             return list;
             ;
         }
@@ -57,7 +66,7 @@ namespace BL.Services
         {
             var AList = dal.Customers.GetApplications(id);
             List<BLApplications> list = new();
-            AList.ForEach(a => list.Add(applicationTobl(a)));
+            AList.ForEach(a => list.Add(((BLApplicationsService)applicationsBl).applicationTobl(a)));
             return list;
         }
         #endregion
@@ -68,7 +77,7 @@ namespace BL.Services
         {
             var AList = dal.Customers.GetAssessments(id);
             List<BLAssessment> list = new();
-            AList.ForEach(a => list.Add(assessmentTobl(a)));
+            AList.ForEach(a => list.Add(((BLAssessmentService)assessorBl).assessmentTobl(a)));
             return list;
         }
         #endregion
@@ -79,7 +88,7 @@ namespace BL.Services
         {
             var AList = dal.Customers.GetApartmentsDetails(id);
             List<BLApartmentDetails> list = new();
-            AList.ForEach(a => list.Add(apartmentDetailsTobl(a)));
+            AList.ForEach(a => list.Add(((BLApartmenetDetailsService)apartmentDetailsBl).apartmentDetailsTobl(a)));
             return list;
         }
         #endregion
@@ -129,7 +138,7 @@ namespace BL.Services
 
 
         #region customerTodal
-        Customer customerTodal(BLCustomer blc)
+      public  Customer customerTodal(BLCustomer blc)
         {
             Customer c = new Customer()
             {
@@ -146,7 +155,7 @@ namespace BL.Services
         #endregion
 
         #region customerTobl
-        BLCustomer customerTobl(Customer c)
+      public  BLCustomer customerTobl(Customer c)
         {
             if (c != null)
             {
@@ -160,94 +169,6 @@ namespace BL.Services
                     CustomerPhone = c.CustomerPhone,
                     CustomerEmail = c.CustomerEmail != null ? c.CustomerEmail : "",
 
-                };
-                return bla;
-            }
-            return null;
-        }
-        #endregion
-
-        #region  assessorTobl
-        BLAssessor assessorTobl(Assessor a)
-        {
-            if(a != null) { 
-            BLAssessor bla = new BLAssessor()
-            {
-                AssessorId = a.AssessorId,
-                AssessorFirstName = a.AssessorFirstName,
-                AssessorLastName = a.AssessorLastName,
-                AssessorCity = a.AssessorCity,
-                AssessorAddress = a.AssessorAddress,
-                AssessorPhone = a.AssessorPhone,
-                AssessorEmail = a.AssessorEmail,
-                Seniority = a.Seniority,
-                Available = a.Available,
-                IsManager = a.IsManager,
-                NumOfCustomers = (int)a.NumOfCustomers,
-            };
-            return bla;
-            }
-            return null;
-        }
-        #endregion
-
-        #region applicationTobl
-        BLApplications applicationTobl(Application a)
-        {
-
-            BLApplications blapp = new BLApplications()
-            {
-                ApplicationId = a.ApplicationId,
-                AssessorId = a.AssessorId,
-                ApplicationDate = a.ApplicationDate,
-                LastApplicationDate = a.LastApplicationDate,
-                ApplicationStatus = a.ApplicationStatus,
-            };
-            return blapp;
-        }
-        #endregion
-
-        #region assessmentTobl
-        BLAssessment assessmentTobl(Assessment a)
-        {
-            if (a != null)
-            {
-                BLAssessment bla = new BLAssessment()
-                {
-                    AssessmentId = a.AssessmentId,
-                    Block = a.Block != null ? a.Block : "",
-                    Plot = a.Plot != null ? a.Plot : "",
-                    SubPlot = a.SubPlot != null ? a.SubPlot : "",
-                    ConstructionYear = a.ConstructionYear != null ? a.ConstructionYear : "",
-                    AcquisionPrice = (int)(a.AcquisionPrice != null ? a.AcquisionPrice : 0),
-                    AssessmentGoal = a.AssessmentGoal != null ? a.AssessmentGoal : "",
-                    LegalState = a.LegalState != null ? a.LegalState : "",
-                    BuildingPermit = a.BuildingPermit != null ? a.BuildingPermit : "",
-                    IrregularitiesBuilding = a.IrregularitiesBuilding != null ? a.IrregularitiesBuilding : "",
-                };
-                return bla;
-            }
-            return null;
-        }
-        #endregion
-
-
-        #region apartmentDetailsTobl
-        BLApartmentDetails apartmentDetailsTobl(ApartmentDetail a)
-        {
-            if (a != null)
-            {
-                BLApartmentDetails bla = new BLApartmentDetails()
-                {
-                    ApartmentId = a.ApartmentId,
-                    AirDirections = a.AirDirections,
-                    ApartmentAddress = a.ApartmentAddress,
-                    ApartmentCity = a.ApartmentCity,
-                    Directions = a.Directions,
-                    ApartmentSize = a.ApartmentSize,
-                    Elevator = a.Elevator,
-                    Floor = a.Floor,
-                    CustomerId = a.CustomerId
                 };
                 return bla;
             }

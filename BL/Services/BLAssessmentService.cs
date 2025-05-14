@@ -63,7 +63,7 @@ namespace BL.Services
 
 
         #region assessmentTodal
-        Assessment assessmentTodal(BLAssessment bla)
+       public Assessment assessmentTodal(BLAssessment bla)
         {
             Assessment a = new Assessment()
             {
@@ -83,7 +83,7 @@ namespace BL.Services
         #endregion
 
         #region assessmentTobl
-        BLAssessment assessmentTobl(Assessment a)
+        public BLAssessment assessmentTobl(Assessment a)
         {
             BLAssessment bla = new BLAssessment()
             {

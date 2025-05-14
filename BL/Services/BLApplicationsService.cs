@@ -10,13 +10,22 @@ using System.Threading.Tasks;
 
 namespace BL.Services
 {
-    public class BLApplicationsService:IBLApplications
+    public class BLApplicationsService : IBLApplications
     {
         IDal dal;
+        IBLAssessor assessorBl;
+        IBLCustomer customerBl;
+        IBLApartmentDetails apartmentDetailsBl;
 
-        public BLApplicationsService(IDal dal)
+
+        public BLApplicationsService(IDal dal, IBLAssessor assessorBl, IBLCustomer customerBl, IBLApartmentDetails apartmentDetailsBl)
         {
+
+
             this.dal = dal;
+            this.assessorBl = assessorBl;
+            this.customerBl = customerBl;
+            this.apartmentDetailsBl = apartmentDetailsBl;
         }
         #region GetAll
         public List<BLApplications> GetAll()
@@ -40,51 +49,61 @@ namespace BL.Services
 
         public int GetCode()
         {
-                var list  = dal.Applications.GetApplications();
-                if (list != null) {
-                
-                    var code = list[list.Count() - 1].ApplicationId;
-                    return ++code;
-                 }
-                else return 1000;
-            }
-    #region Add
-        
+            var list = dal.Applications.GetApplications();
+            if (list != null)
+            {
 
-        public async Task<BLAssessor> Add(BlFull full,int code)
+                var code = list[list.Count() - 1].ApplicationId;
+                return ++code;
+            }
+            else return 1000;
+        }
+        #region Add
+
+
+        public async Task<BLAssessor> Add(BlFull full, int code)
         {
+
             full.application.ApplicationId = code;
             // מציאת שמאים פנויים
             var list = dal.Assessors.GetAssessorsSimple().FindAll(x => x.Available == true);
             //מה קורה כשאין שמאי פנוי 
             //
             //var count = list.Count();
-            Random r = new Random();    
+            Random r = new Random();
             int ind = r.Next(0, list.Count());
 
-            BLAssessor b = assessorTobl(list[ind]);
+            BLAssessor b = (((BLAssessorService)assessorBl).assessorTobl(list[ind]));
 
             b.NumOfCustomers = b.NumOfCustomers + 1;
-            if(b.NumOfCustomers ==ConstantCls.NumCustomer )
-                        { b.Available = false; }
+            if (b.NumOfCustomers == ConstantCls.NumCustomer)
+            { b.Available = false; }
             full.application.AssessorId = b.AssessorId;
-            await dal.Applications.Add(applicationTodal(full.application));
+
+            Task a = dal.Applications.Add(applicationTodal(full.application));
+            while (!a.IsCompletedSuccessfully) ;
+
             ///////////////////////
             full.apartment.ApartmentId = code;
             full.apartment.CustomerId = full.customer.CustomerId;
 
-            Customer? c= dal.Customers.GetCustomers().Find(x=> x.CustomerId == full.customer.CustomerId);
-            if(c==null )
-               await dal.Customers.Add(customerTodal(full.customer));
-           /////////////////////////
+            Customer? c = dal.Customers.GetCustomers().Find(x => x.CustomerId == full.customer.CustomerId);
+            if (c == null)
+                await dal.Customers.Add(((BLCustomersService)customerBl).customerTodal((full.customer)));
 
-           await  dal.ApartmentDetails.Add(apartmentDetailsTodal(full.apartment));
-            ////////////////////
-           await  dal.Assessments.Add(code);
-            ////////////////////
-            dal.Assessors.Update(assessorTodal(b));
-            //////////////
-            return assessorTobl(list[ind]);
+            /////////////////////////
+
+            Task e = dal.ApartmentDetails.Add(((BLApartmenetDetailsService)apartmentDetailsBl).apartmentDetailsTodal(full.apartment));
+            while (!e.IsCompletedSuccessfully) ;
+
+            Task f = dal.Assessments.Add(code);
+            //////////////////// 
+            while (!f.IsCompletedSuccessfully) ;
+            dal.Assessors.Update(((BLAssessorService)assessorBl).assessorTodal(b));
+            ////////////// 
+
+            return (((BLAssessorService)assessorBl).assessorTobl(list[ind]));
+
         }
 
         #endregion
@@ -109,7 +128,7 @@ namespace BL.Services
         #endregion
 
         #region applicationTodal
-        Application applicationTodal(BLApplications blapp)
+        public Application applicationTodal(BLApplications blapp)
         {
             Application a = new Application()
             {
@@ -118,8 +137,6 @@ namespace BL.Services
                 ApplicationDate = blapp.ApplicationDate,
                 LastApplicationDate = blapp.LastApplicationDate,
                 ApplicationStatus = blapp.ApplicationStatus,
-                //AssessmentId = blapp.AssessmentId != 0 ? blapp.AssessmentId : null,
-                //ApartmentId = blapp.ApartmentId != 0 ? blapp.ApartmentId : null,
             };
 
             return a;
@@ -142,84 +159,8 @@ namespace BL.Services
         }
         #endregion
 
-        #region  assessorTobl
-        BLAssessor assessorTobl(Assessor a)
-        {
-            BLAssessor bla = new BLAssessor()
-            {
-                AssessorId = a.AssessorId,
-                AssessorFirstName = a.AssessorFirstName,
-                AssessorLastName = a.AssessorLastName,
-                AssessorCity = a.AssessorCity,
-                AssessorAddress = a.AssessorAddress,
-                AssessorPhone = a.AssessorPhone,
-                AssessorEmail = a.AssessorEmail,
-                Seniority = a.Seniority,
-                Available = a.Available,
-                IsManager = a.IsManager,
-            };
-            return bla;
-        }
-        #endregion
-
-        #region apartmentDetailsTodal
-        static ApartmentDetail apartmentDetailsTodal(BLApartmentDetails a)
-        {
-            ApartmentDetail bla = new ApartmentDetail()
-            {
-                ApartmentId = a.ApartmentId,
-                AirDirections = a.AirDirections,
-                ApartmentAddress = a.ApartmentAddress,
-                ApartmentCity = a.ApartmentCity,
-                Directions = a.Directions,
-                ApartmentSize = a.ApartmentSize,
-                Elevator = a.Elevator,
-                Floor = a.Floor,
-                CustomerId = a.CustomerId
-            };
-            return bla;
-        }
-
-        #endregion
-
-        #region customerTodal
-        Customer customerTodal(BLCustomer blc)
-        {
-            Customer c = new Customer()
-            {
-                CustomerId = blc.CustomerId,
-                CustomerFirstName = blc.CustomerFirstName,
-                CustomerLastName = blc.CustomerLastName,
-                CustomerCity = blc.CustomerCity,
-                CustomerAddress = blc.CustomerAddress,
-                CustomerPhone = blc.CustomerPhone,
-                CustomerEmail = blc.CustomerEmail != null ? blc.CustomerEmail : "",
-            };
-            return c;
-        }
-        #endregion
-
-        #region assessorTodal
-        Assessor assessorTodal(BLAssessor bla)
-        {
-            Assessor a = new Assessor()
-            {
-                AssessorId = bla.AssessorId,
-                AssessorFirstName = bla.AssessorFirstName,
-                AssessorLastName = bla.AssessorLastName,
-                AssessorCity = bla.AssessorCity,
-                AssessorAddress = bla.AssessorAddress,
-                AssessorPhone = bla.AssessorPhone,
-                AssessorEmail = bla.AssessorEmail,
-                Seniority = bla.Seniority,
-                Available = bla.Available,
-                IsManager = bla.IsManager,
-                NumOfCustomers = bla.NumOfCustomers,
-            };
-            return a;
-        }
 
 
-        #endregion
     }
-}
+}   
+
