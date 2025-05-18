@@ -58,8 +58,8 @@ namespace BL.Services
             // מציאת שמאים פנויים
             var list = dal.Assessors.GetAssessorsSimple().FindAll(x => x.Available == true);
             //מה קורה כשאין שמאי פנוי 
-            //
-            //var count = list.Count();
+            
+            
             Random r = new Random();
             int ind = r.Next(0, list.Count());
 
@@ -71,8 +71,7 @@ namespace BL.Services
             full.application.AssessorId = b.AssessorId;
 
            await  dal.Applications.Add(Cast.applicationTodal(full.application));
-            //Task.WaitAll(a);
-            //while (!a.IsCompletedSuccessfully) ;
+            
 
             ///////////////////////
             full.apartment.ApartmentId = code;
@@ -84,14 +83,12 @@ namespace BL.Services
 
             /////////////////////////
 
-            //Task e = dal.ApartmentDetails.Add(Cast.apartmentDetailsTodal(full.apartment));
+           
            await dal.ApartmentDetails.Add(Cast.apartmentDetailsTodal(full.apartment));
-           // while (!e.IsCompletedSuccessfully) ;
-
-            //Task f = dal.Assessments.Add(code);
+           
            await dal.Assessments.Add(code);
             //////////////////// 
-           // while (!f.IsCompletedSuccessfully) ;
+         
             dal.Assessors.Update(Cast.assessorTodal(b));
             ////////////// 
 

@@ -38,7 +38,7 @@ namespace SERVER2.Controllers
              try
             {
                 int code = bl.Applications.GetCode();
-                var a =  bl.Applications.Add(full, code);
+                var a =  bl.Applications.Add(full, code).Result ;
               return   Ok(a );
             }
 
