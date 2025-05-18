@@ -29,7 +29,7 @@ namespace BL.Services
                 code++;
             }
             id.ChatId = code;
-            dal.Chats.Add(chatTodal(id));
+            dal.Chats.Add(Cast.chatTodal(id));
         }
 
         public void Delete(int id)
@@ -41,7 +41,7 @@ namespace BL.Services
         {
             var AList = dal.Chats.GetChats();
             List<BLChat> list = new();
-            AList.ForEach(a => list.Add(chatTobl((Chat)a)));
+            AList.ForEach(a => list.Add(Cast.chatTobl((Chat)a)));
             return list;
         }
 
@@ -49,53 +49,14 @@ namespace BL.Services
         {
             var AList = dal.Chats.GetChats();
             var o = AList.Find(x => x.ChatId == id);
-            return chatTobl((Chat)o);
+            return Cast.chatTobl((Chat)o);
         }   
 
         public void Update(BLChat chat)
         {
-            dal.Chats.Update(chatTodal(chat));
+            dal.Chats.Update(Cast.chatTodal(chat));
         }
    
-    #region chatTodal
-    Chat chatTodal(BLChat chat)
-    {
-            Chat c = new Chat()
-        {
-            
-            ChatId = chat.ChatId,
-            ApplicationId = chat.ApplicationId,
-            Read = chat.Read,
-            From = chat.From,
-            SendDate =chat.SendDate,    
-            Information = chat.Information,
-            To = chat.To,   
-        };
-        return c;
-    }
-      
-    #endregion
-
-    #region chatTobl
-   public BLChat chatTobl(Chat chat)
-    {
-        if (chat != null)
-        {
-            BLChat ch = new BLChat()
-            {
-                ChatId = chat.ChatId,
-                ApplicationId = (int)chat.ApplicationId,
-                Read = (bool)chat.Read,
-                SendDate=chat.SendDate,
-                From = chat.From,
-                Information = chat.Information,
-                To = chat.To,   
-            };
-            return ch;
-        }
-        return null;
-    }
-
-        #endregion
+   
     }
 }
