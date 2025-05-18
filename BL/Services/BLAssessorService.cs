@@ -18,6 +18,7 @@ namespace BL.Services
         IBLChat chatBl;
         IBLAssessment assessmentBl ;
         IBLCustomer customerBl;
+        //public int MyProperty { get; set; }
         public BLAssessorService(IDal dal,IBLApplications application, IBLCustomer customerBl, IBLAssessment assessmentBl, IBLApartmentDetails apartmentDetails, IBLChat chatBl)
         {
             this.dal = dal;
@@ -34,7 +35,7 @@ namespace BL.Services
         {
             var AList = dal.Assessors.GetAssessors();
             List<BLAssessor> list = new();
-            AList.ForEach(a => list.Add(assessorTobl(a)));  
+            AList.ForEach(a => list.Add(Cast.assessorTobl(a)));  
             return list;
         }
         #endregion
@@ -44,7 +45,7 @@ namespace BL.Services
         {
             var AList = dal.Assessors.GetCustomers(id);
             List<BLCustomer> list = new();
-            AList.ForEach(a => list.Add(((BLCustomersService)customerBl).customerTobl(a)));
+            AList.ForEach(a => list.Add(Cast.customerTobl(a)));
             return list;
         }
         #endregion
@@ -54,7 +55,7 @@ namespace BL.Services
         {
             var AList = dal.Assessors.GetApplications(id);
             List<BLApplications> list = new();
-            AList.ForEach(a => list.Add(((BLApplicationsService)applicationBl).applicationTobl(a)));
+            AList.ForEach(a => list.Add(Cast.applicationTobl(a)));
             return list;
         }
         #endregion
@@ -65,7 +66,7 @@ namespace BL.Services
         {
             var AList = dal.Assessors.GetAssessments(id);
             List<BLAssessment> list = new();
-            AList.ForEach(a => list.Add(((BLAssessmentService)assessmentBl).assessmentTobl(a)));
+            AList.ForEach(a => list.Add(Cast.assessmentTobl(a)));
             return list;
         }
         #endregion
@@ -76,7 +77,7 @@ namespace BL.Services
         {
             var AList = dal.Assessors.GetApartmentsDetails(id);
             List<BLApartmentDetails> list = new();
-            AList.ForEach(a => list.Add(((BLApartmenetDetailsService)apartmentDetailsBL).apartmentDetailsTobl(a)));
+            AList.ForEach(a => list.Add(Cast.apartmentDetailsTobl(a)));
             return list;
         }
         #endregion
@@ -92,7 +93,7 @@ namespace BL.Services
                 var a = List[i];
                 for (int j = 0; j <a.Count() ;j++)
                 {
-                    list.Add(((BLChatService)chatBl).chatTobl(a.ElementAt(j)));
+                    list.Add(Cast.chatTobl(a.ElementAt(j)));
                 }
             }
             return list;
@@ -104,7 +105,7 @@ namespace BL.Services
         {
             var AList = dal.Assessors.GetAssessors();
            var o = AList.Find(x => x.AssessorId == id);
-         if(o!=null) return assessorTobl(o);
+         if(o!=null) return Cast.assessorTobl(o);
             return null;
            
         }
@@ -113,7 +114,7 @@ namespace BL.Services
         #region Add
         public void Add(BLAssessor a)
         {
-            dal.Assessors.Add(assessorTodal(a));
+            dal.Assessors.Add(Cast.assessorTodal(a));
         }
         #endregion
 
@@ -121,7 +122,7 @@ namespace BL.Services
 
         public void Update(BLAssessor assessor)
         {
-            dal.Assessors.Update(assessorTodal(assessor));
+            dal.Assessors.Update(Cast.assessorTodal(assessor));
 
 
         }
@@ -138,51 +139,7 @@ namespace BL.Services
 
         #endregion
 
-        #region  assessorTobl
-     public   BLAssessor assessorTobl(Assessor a)
-        {
-            BLAssessor bla = new BLAssessor()
-            {
-               AssessorId = a.AssessorId,
-                AssessorFirstName = a.AssessorFirstName,
-                AssessorLastName = a.AssessorLastName,
-                AssessorCity = a.AssessorCity,
-                AssessorAddress = a.AssessorAddress,
-                AssessorPhone = a.AssessorPhone,
-                AssessorEmail = a.AssessorEmail,
-                Seniority = a.Seniority,
-                Available = a.Available,
-                IsManager = a.IsManager,
-                NumOfCustomers = (int)a.NumOfCustomers,
-            };
-            return bla;
-        }
-        #endregion
-
-        #region assessorTodal
-       public Assessor assessorTodal(BLAssessor bla)
-        {
-            Assessor a = new Assessor()
-            {
-                AssessorId = bla.AssessorId,
-                AssessorFirstName = bla.AssessorFirstName,
-                AssessorLastName = bla.AssessorLastName,
-                AssessorCity = bla.AssessorCity,
-                AssessorAddress = bla.AssessorAddress,
-                AssessorPhone = bla.AssessorPhone,
-                AssessorEmail = bla.AssessorEmail,
-                Seniority = bla.Seniority,
-                Available = bla.Available,
-                IsManager = bla.IsManager,
-                NumOfCustomers = bla.NumOfCustomers,
-            };
-            return a;
-        }
-
-
-        #endregion
-
-      
+     
 
     }
 }

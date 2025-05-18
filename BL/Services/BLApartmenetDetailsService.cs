@@ -26,7 +26,7 @@ namespace BL.Services
             var AList = dal.ApartmentDetails.GetApartmentDetails();
             List<BLApartmentDetails> list = new();
             
-            AList.ForEach(a => list.Add((apartmentDetailsTobl(a))));
+            AList.ForEach(a => list.Add((Cast.apartmentDetailsTobl(a))));
             return list;
         }
         #endregion
@@ -36,7 +36,7 @@ namespace BL.Services
         {
             var AList = dal.ApartmentDetails.GetApartmentDetails();
             var o = AList.Find(x => x.ApartmentId == id);
-            return apartmentDetailsTobl(o);
+            return Cast.apartmentDetailsTobl(o);
 
         }
         #endregion
@@ -44,7 +44,7 @@ namespace BL.Services
         #region Add
         public void Add(BLApartmentDetails a)
         {
-            dal.ApartmentDetails.Add(apartmentDetailsTodal(a));
+            dal.ApartmentDetails.Add(Cast.apartmentDetailsTodal(a));
         }
         #endregion
 
@@ -52,7 +52,7 @@ namespace BL.Services
 
         public void Update(BLApartmentDetails apartmentDetails)
         {
-            dal.ApartmentDetails.Update(apartmentDetailsTodal(apartmentDetails));
+            dal.ApartmentDetails.Update(Cast.apartmentDetailsTodal(apartmentDetails));
 
 
         }
@@ -70,44 +70,7 @@ namespace BL.Services
         #endregion
 
 
-        #region apartmentDetailsTodal
-        public ApartmentDetail apartmentDetailsTodal(BLApartmentDetails a)
-        {
-            ApartmentDetail bla = new ApartmentDetail()
-            {
-                ApartmentId = a.ApartmentId,
-                AirDirections = a.AirDirections,
-                ApartmentAddress = a.ApartmentAddress,
-                ApartmentCity = a.ApartmentCity,
-                Directions = a.Directions,
-                ApartmentSize = a.ApartmentSize,
-                Elevator = a.Elevator,
-                Floor = a.Floor,
-                CustomerId = a.CustomerId
-            };
-            return bla;
-        }
 
-        #endregion
-
-        #region apartmentDetailsTobl
-       public  BLApartmentDetails apartmentDetailsTobl(ApartmentDetail a)
-        {
-            BLApartmentDetails bla = new BLApartmentDetails()
-            {
-                ApartmentId = a.ApartmentId,
-                AirDirections = a.AirDirections,
-                ApartmentAddress = a.ApartmentAddress,
-                ApartmentCity = a.ApartmentCity,
-                Directions = a.Directions,
-                ApartmentSize = a.ApartmentSize,
-                Elevator = a.Elevator,
-                Floor = a.Floor,
-                CustomerId = a.CustomerId
-            };
-            return bla;
-        }
-        #endregion
 
 
 

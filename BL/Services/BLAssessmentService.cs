@@ -22,7 +22,7 @@ namespace BL.Services
         {
             var AList = dal.Assessments.GetAssessments();
             List<BLAssessment> list = new();
-            AList.ForEach(a => list.Add(assessmentTobl(a)));
+            AList.ForEach(a => list.Add(Cast.assessmentTobl(a)));
             return list;
         }
         #endregion
@@ -32,7 +32,7 @@ namespace BL.Services
         {
             var AList = dal.Assessments.GetAssessments();
             var o = AList.Find(x => x.AssessmentId == id);
-            return assessmentTobl(o);
+            return Cast.assessmentTobl(o);
         }
         #endregion
 
@@ -47,7 +47,7 @@ namespace BL.Services
 
         public void Update(BLAssessment assessment)
         {
-            dal.Assessments.Update(assessmentTodal(assessment));
+            dal.Assessments.Update(Cast.assessmentTodal(assessment));
             
         }
         #endregion
@@ -60,48 +60,6 @@ namespace BL.Services
 
         }
         #endregion
-
-
-        #region assessmentTodal
-       public Assessment assessmentTodal(BLAssessment bla)
-        {
-            Assessment a = new Assessment()
-            {
-                AssessmentId = bla.AssessmentId,
-                Block = bla.Block,
-                Plot = bla.Plot,
-                SubPlot = bla.SubPlot,
-                ConstructionYear = bla.ConstructionYear,
-                AcquisionPrice = bla.AcquisionPrice,
-                AssessmentGoal = bla.AssessmentGoal,
-                LegalState = bla.LegalState,
-                BuildingPermit = bla.BuildingPermit,
-                IrregularitiesBuilding = bla.IrregularitiesBuilding
-            };
-            return a;
-        }
-        #endregion
-
-        #region assessmentTobl
-        public BLAssessment assessmentTobl(Assessment a)
-        {
-            BLAssessment bla = new BLAssessment()
-            {
-                AssessmentId = a.AssessmentId,
-                Block = a.Block != null ? a.Block : "",
-                Plot = a.Plot != null ? a.Plot : "",
-                SubPlot = a.SubPlot != null ? a.SubPlot : "",
-                ConstructionYear = a.ConstructionYear != null ? a.ConstructionYear : "",
-                AcquisionPrice = (int)(a.AcquisionPrice != null ? a.AcquisionPrice : 0),
-                AssessmentGoal = a.AssessmentGoal != null ? a.AssessmentGoal : "",
-                LegalState = a.LegalState != null ? a.LegalState : "",
-                BuildingPermit = a.BuildingPermit != null ? a.BuildingPermit : "",
-                IrregularitiesBuilding = a.IrregularitiesBuilding != null ? a.IrregularitiesBuilding : "",
-            };
-            return bla;
-        }
-        #endregion
-
 
     }
 }

@@ -32,6 +32,7 @@ namespace DAL.Services
         {
             Assessment assess = db.Assessments.Find(assessment.AssessmentId);
                 if(assess!=null) {
+               
                 assess.Plot=assessment.Plot;
                 assess.Block = assessment.Block;
                 assess.SubPlot = assessment.SubPlot;    

@@ -58,3 +58,18 @@ C:\Users\angular\Desktop\newProject\c#\BL\obj\Debug\net7.0\BL.dll
 C:\Users\angular\Desktop\newProject\c#\BL\obj\Debug\net7.0\refint\BL.dll
 C:\Users\angular\Desktop\newProject\c#\BL\obj\Debug\net7.0\BL.pdb
 C:\Users\angular\Desktop\newProject\c#\BL\obj\Debug\net7.0\ref\BL.dll
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\bin\Debug\net7.0\BL.deps.json
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\bin\Debug\net7.0\BL.dll
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\bin\Debug\net7.0\BL.pdb
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\bin\Debug\net7.0\DAL.dll
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\bin\Debug\net7.0\DAL.pdb
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\BL.csproj.AssemblyReference.cache
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\BL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\BL.AssemblyInfoInputs.cache
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\BL.AssemblyInfo.cs
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\BL.csproj.CoreCompileInputs.cache
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\BL.csproj.CopyComplete
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\BL.dll
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\refint\BL.dll
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\BL.pdb
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\BL\obj\Debug\net7.0\ref\BL.dll

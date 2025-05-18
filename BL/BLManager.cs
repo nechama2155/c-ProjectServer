@@ -34,15 +34,15 @@ namespace BL
 
             ServiceProvider serviceProvider = services.BuildServiceProvider();
 
-            Customers = serviceProvider.GetRequiredService<IBLCustomer>();
-
-            Assessors = serviceProvider.GetRequiredService<IBLAssessor>();
+            Applications = serviceProvider.GetRequiredService<IBLApplications>();
 
             Assessments = serviceProvider.GetRequiredService<IBLAssessment>();
 
             ApartmentDetails = serviceProvider.GetRequiredService<IBLApartmentDetails>();
 
-            Applications = serviceProvider.GetRequiredService<IBLApplications>();
+            Customers = serviceProvider.GetRequiredService<IBLCustomer>();
+
+            Assessors = serviceProvider.GetRequiredService<IBLAssessor>();
 
             Chats = serviceProvider.GetRequiredService<IBLChat>();
 
