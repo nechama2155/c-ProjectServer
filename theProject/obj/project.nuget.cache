@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pew1KAk08RIox18zGi6XUwgTfFNmppED/wMHIhHnqEs+BPkMkoHOLkZkz+PBOcCkZRQ/Ryc8OygWvdO+sQcJ6g==",
+  "dgSpecHash": "USot2lpF7MtnUsjg20PhohSmkivLJXFZvhKfU00r7Qg9vPd9aXnh+YXf+WXsfWPEMiu1wRRP4WfVIoMrqWeEdA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\angular\\Desktop\\newProject\\c#\\theProject\\theProject.csproj",
+  "projectFilePath": "D:\\Nechami\\project from git\\c-Project C#\\c-ProjectServer\\theProject\\theProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\angular\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\angular\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

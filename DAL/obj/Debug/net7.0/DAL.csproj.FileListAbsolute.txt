@@ -54,3 +54,17 @@ C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\refint\DAL.dll
 C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.pdb
 C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
 C:\Users\angular\Desktop\newProject\c#\DAL\obj\Debug\net7.0\ref\DAL.dll
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\bin\Debug\net7.0\DAL.deps.json
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\bin\Debug\net7.0\DAL.dll
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\bin\Debug\net7.0\DAL.pdb
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\DAL.dll
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\refint\DAL.dll
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\DAL.pdb
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+D:\Nechami\project from git\c-Project C#\c-ProjectServer\DAL\obj\Debug\net7.0\ref\DAL.dll
