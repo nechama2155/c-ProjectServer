@@ -47,6 +47,7 @@ namespace BL.Services
         }
         #endregion
 
+        #region GetCode
         public int GetCode()
         {
             var list = dal.Applications.GetApplications();
@@ -58,6 +59,8 @@ namespace BL.Services
             }
             else return 1000;
         }
+        #endregion
+
         #region Add
 
 
